@@ -23,7 +23,8 @@ import { CrudserviceService } from './crudservice.service';
   ],
   providers: [
     HttpClient,
-  CrudserviceService],
+  CrudserviceService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

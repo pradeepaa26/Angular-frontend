@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudserviceService } from '../crudservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view',
@@ -8,7 +9,7 @@ import { CrudserviceService } from '../crudservice.service';
 })
 export class ViewComponent implements OnInit {
 object: Array <any>=[];
-  constructor(private obj:CrudserviceService) { }
+  constructor(private obj:CrudserviceService, private router:Router) { }
 
   ngOnInit(): void {
   this.view();
@@ -17,9 +18,13 @@ object: Array <any>=[];
     }
   
   view(){
-    this.obj.view().subscribe((res :any)=>{
+    this.obj.viewcourse().subscribe((res :any)=>{
       this.object=res;
       console.log(res);
   });
 
-}}
+}
+new(){
+  this.router.navigateByUrl("/course");
+}
+}

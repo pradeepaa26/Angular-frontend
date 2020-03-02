@@ -9,7 +9,15 @@ export class CrudserviceService {
   constructor(private http:HttpClient) { 
 
   }
-  view(){
+  viewcourse(){
     return this.http.get("http://localhost:9000/view");
   }
+viewlevels()
+{
+  return this.http.get("http://localhost:9000/viewlevel");
+}
+viewcategories()
+{
+  return this.http.get("http://localhost:9000/viewcategory");
+}
 }
