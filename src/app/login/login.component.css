@@ -49,4 +49,9 @@ span.psw {
   .cancelbtn {
      width: 100%;
   }
+  .content {
+    max-width: 500px;
+    margin: auto;
+    padding: 10px;
+  }
 }

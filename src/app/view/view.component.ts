@@ -13,8 +13,6 @@ object: Array <any>=[];
 
   ngOnInit(): void {
   this.view();
-
-
     }
   
   view(){

@@ -8,13 +8,15 @@ import { NewcourseComponent } from './newcourse/newcourse.component';
 import { ViewComponent } from './view/view.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CrudserviceService } from './crudservice.service';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NewcourseComponent,
-    ViewComponent
+    ViewComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

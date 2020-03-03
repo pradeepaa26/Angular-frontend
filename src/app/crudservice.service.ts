@@ -20,4 +20,9 @@ viewcategories()
 {
   return this.http.get("http://localhost:9000/viewcategory");
 }
+viewdetails(name:any)
+{
+  console.log(name)
+  return this.http.get("http://localhost:9000/viewbyname/"+name);
+}
 }
