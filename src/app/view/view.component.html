@@ -2,8 +2,10 @@
     <div>
         <h2 class="left">Courses</h2>
         <div class="right">
-            <button type="button" (click)="new()" class="btn btn-primary">Create New</button>
+            <button type="button" (click)="new()" class="btn btn-primary">Create New</button>&nbsp;
+
         </div>
+
     </div>
 </div>
 <hr>
@@ -27,11 +29,21 @@
                 <td>{{i+1}}</td>
                 <td><a [routerLink]="['details']" [queryParams]="{ name: obj.name }">{{obj.name}}</a></td>
                 <td> </td>
-                <td> </td>
+                <td>
+                    <ng-container *ngIf="obj.mode=='p' ; then publish else draft"></ng-container>
+                    <ng-template #publish>Published</ng-template>
+                    <ng-template #draft>Draft</ng-template>
+                </td>
                 <td>{{obj.categories.name}}</td>
                 <td>{{obj.levels.name}}</td>
                 <td>{{obj.created_by}}</td>
-                <td>{{obj.active}}</td>
+                <td>
+                    <ng-container *ngIf="obj.active== true ;then active else inactive"></ng-container>
+                    <ng-template #active><button type="button" class="btn btn-warning btn-sm btn-block">Active</button>
+                    </ng-template>
+                    <ng-template #inactive><button type="button" class="btn btn-dark btn-sm btn-block">Inactive</button>
+                    </ng-template>
+                </td>
                 <td>
                     <i class="fa fa-edit"></i>&nbsp;
                     <i class="fas fa-clone"></i>&nbsp;

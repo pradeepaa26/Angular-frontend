@@ -1,58 +1,62 @@
 <div class="container">
-<div>
-    <h2 class="left">Courses</h2>
-    <div class="right">
-        <button type="button" class="btn btn-primary" style="margin-right:10px">Edit</button>
-        <button type="button" class="btn btn-primary" style="margin-right:10px">Clone</button>
-        <button type="button" class="btn btn-primary" style="margin-right:10px">Delete</button>
-        <button type="button" class="btn btn-primary" style="margin-right:10px" (click)=back()>Back</button>
-    </div>
-</div>
-<hr>
-<div *ngFor="let o of object">
-    <div class="center">
-<div class="alert alert-primary" style="text-align: center;">
-    {{o.name}} - 
-  </div>
-  <div *ngIf=o.levels.name>level : {{o.levels.name}}
-</div>
-<div *ngIf=o.categories.name>
-    Category : {{o.categories.name}}
-</div>
-<div *ngIf=o.slug>
-Slug: <a href="#">https://qa.revature.com/REV/course/{{o.slug}}</a>
-</div>
-Level Over-ride:
-    </div>
     <div>
-        Available for:
+        <h2 class="left">Courses</h2>
+        <div class="right">
+            <button type="button" class="btn btn-primary" style="margin-right:10px">Edit</button>
+            <button type="button" class="btn btn-primary" style="margin-right:10px">Clone</button>
+            <button type="button" class="btn btn-primary" style="margin-right:10px">Delete</button>
+            <button type="button" class="btn btn-primary" style="margin-right:10px" (click)=back()>Back</button>
+        </div>
     </div>
-    <div *ngIf="o.active== false">
-        Active: No
+    <hr>
+    <div *ngFor="let o of object">
+        <div class="center">
+            <div class="alert alert-primary" style="text-align: center;">
+                {{o.name}} -
+            </div>
+            <div *ngIf=o.levels.name><b>level :</b> {{o.levels.name}}
+            </div>
+            <div *ngIf=o.categories.name>
+               <b> Category : </b>{{o.categories.name}}
+            </div>
+            <div *ngIf=o.slug>
+               <b> Slug: </b><a href="#">https://qa.revature.com/REV/course/{{o.slug}}</a>
+            </div>
+            <b>Level Over-ride:</b>
+        </div>
+        <div>
+            <b>Available for:</b>
+        </div>
+        <div>
+            <ng-container *ngIf="o.active== false;then active else inactive"></ng-container>
+            <ng-template #active><b>Active :</b> No</ng-template>
+            <ng-template #inactive><b>Active :</b> Yes</ng-template>
+        </div>
+        <div *ngIf=o.enrollmentPoints>
+            <b>Enrollment Activity Points: </b>{{o.enrollmentPoints}}
+        </div>
+        <diV *ngIf=o.completionPoints>
+            <b>Completion Activity Points: </b>{{o.completionPoints}}
+        </diV>
+        <div *ngIf=o.tag>
+           <b> Tags:</b> {{o.tag}}
+        </div>
+        <div >
+            <ng-container *ngIf="o.mode=='p' ; then publish else draft"></ng-container>
+            <ng-template #publish><b>Mode:</b> Publish</ng-template>
+            <ng-template #draft><b>Mode:</b> Draft</ng-template>
+        </div>
+        <div *ngIf=o.created_by>
+            <b>Created By:</b> {{o.created_by}}
+        </div>
+        <div *ngIf=o.created_on>
+            <b>Created On: </b>{{o.created_on|date}}
+        </div>
+        <div *ngIf=o.modified_by>
+            <b>Modified By:</b> {{o.modified_by}}
+        </div>
+        <div *ngIf=o.modified_on>
+            <b>Modified On:</b> {{o.modified_on|date}}
+        </div>
     </div>
-    <div>
-        Enrollment Activity Points:
-    </div>
-    <diV>
-        Completion Activity Points:
-    </diV>
-<div *ngIf=o.tag>
-    Tags: {{o.tag}}
-</div>
-<div>
-Mode:
-</div>
-<div *ngIf=o.created_by>
-    Created By: {{o.created_by}}
-</div>
-<div *ngIf=o.created_on>
-    Created On: {{o.created_on|date}}
-</div>
-  <div *ngIf=o.modified_by>
-      Modified By: {{o.modified_by}}
-  </div>
-  <div *ngIf=o.modified_on>
-    Modified On: {{o.modified_on|date}}
-</div>
-</div>
 </div>
