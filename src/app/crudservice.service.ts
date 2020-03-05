@@ -25,4 +25,20 @@ viewdetails(name:any)
   console.log(name)
   return this.http.get("http://localhost:9000/viewbyname/"+name);
 }
+// addcourse(form:any,currentlychecked:any){
+//   const body={
+//     name:form.coursename,
+//     levels:form.levels,
+//     categories:form.categories,
+//     tags:form.tags,
+//     override:form.leveloverride,
+//     enrollment:form.enrollment,
+//     completion:form.completion,
+//     desc:form.desc,
+//     metakey:form.metakey,
+//     metadesc:form.metadesc
+//   }
+//   return this.http.post("http://localhost:9000/viewbyname",body);
+// }
 }
+

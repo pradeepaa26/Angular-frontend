@@ -9,6 +9,7 @@ import { ViewComponent } from './view/view.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CrudserviceService } from './crudservice.service';
 import { DetailsComponent } from './details/details.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { DetailsComponent } from './details/details.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     HttpClient,
