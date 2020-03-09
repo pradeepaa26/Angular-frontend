@@ -38,16 +38,16 @@
                 <td>{{obj.levels.name}}</td>
                 <td>{{obj.created_by}}</td>
                 <td>
-                    <ng-container *ngIf="obj.active== true ;then active else inactive"></ng-container>
-                    <ng-template #active><button type="button" class="btn btn-warning btn-sm btn-block">Active</button>
+                    <ng-container *ngIf="obj.active;then active else inactive"></ng-container>
+                    <ng-template #active><button type="button" class="btn btn-warning btn-sm btn-block" (click)="status(obj.id)">Active</button>
                     </ng-template>
-                    <ng-template #inactive><button type="button" class="btn btn-dark btn-sm btn-block">Inactive</button>
+                    <ng-template #inactive><button type="button" class="btn btn-dark btn-sm btn-block" (click)="status(obj.id)">Inactive</button>
                     </ng-template>
                 </td>
                 <td>
                     <i class="fa fa-edit"></i>&nbsp;
-                    <i class="fas fa-clone"></i>&nbsp;
-                    <i class="fa fa-trash"></i>
+                    <i class="fa fa-clone"></i>&nbsp;
+                    <i class="fa fa-trash" (click)=delete(obj.id)></i>
                 </td>
             </tr>
         </tbody>

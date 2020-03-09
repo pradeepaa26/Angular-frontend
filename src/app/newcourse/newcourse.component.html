@@ -63,13 +63,13 @@
         <div class="form-group row">
             <label for="enrollment" class="control-label col-sm-2"> Enrollment Activity Points</label>
             <div class="col-sm-5">
-                <input type="number" min="0" id="enrollment"  value=100  class="form-control"  formControlName="enrollment">
+                <input type="number" min="0" oninput="validity.valid||(value='');" id="enrollment"  value=100  class="form-control"  formControlName="enrollment">
             </div>
         </div>
         <div class="form-group row">
             <label for="completion" class="control-label col-sm-2">Completion Activity Points :</label>
             <div class="col-sm-5">
-                <input type="number" min="0" id="completion"  value=100 class="form-control"  formControlName="completion">
+                <input type="number" min="0" oninput="validity.valid||(value='');" id="completion"  value=100 class="form-control"  formControlName="completion">
             </div>
         </div>
         <div class="form-group row">

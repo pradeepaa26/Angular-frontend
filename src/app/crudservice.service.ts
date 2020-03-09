@@ -25,6 +25,15 @@ viewdetails(name:any)
   console.log(name)
   return this.http.get("http://localhost:9000/viewbyname/"+name);
 }
+modifystatus(id:number):Observable<any>
+{
+  return this.http.get("http://localhost:9000/modifystatus/"+id);
+}
+delete(id:number)
+{
+  return this.http.delete("http://localhost:9000/remove/"+id);
+}
+}
 // addcourse(form:any,currentlychecked:any){
 //   const body={
 //     name:form.coursename,
@@ -40,5 +49,5 @@ viewdetails(name:any)
 //   }
 //   return this.http.post("http://localhost:9000/viewbyname",body);
 // }
-}
+
 

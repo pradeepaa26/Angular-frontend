@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ViewComponent implements OnInit {
 object: Array <any>=[];
+
   constructor(private obj:CrudserviceService, private router:Router) { }
 
   ngOnInit(): void {
@@ -22,7 +23,30 @@ object: Array <any>=[];
   });
 
 }
+status(id:number)
+{
+  this.obj.modifystatus(id).subscribe((res :any)=>{
+    this.view();  
+    console.log(res);
+      alert("Are you sure");
+      },error =>
+      {
+        this.view();
+        console.log(error);
+      });
+}
 new(){
   this.router.navigateByUrl("/course");
+}
+delete(id:any)
+{
+  this.obj.delete(id).subscribe((res:any)=>{
+    this.view();
+    console.log("Delete this course");
+    alert(res);
+  },error=>{
+    this.view();
+    console.log(error)
+  });
 }
 }
